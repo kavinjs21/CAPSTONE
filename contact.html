@@ -1,0 +1,195 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>ShonoWear Contact Us</title>
+
+    <!-- Google Font -->
+    <link href="https://fonts.googleapis.com/css2?family=Bona+Nova+SC&display=swap" rel="stylesheet">
+
+    <!-- External CSS -->
+    <link rel="stylesheet" href="collectionstyle.css">
+
+    <style>
+        /* Apply Bona Nova SC font */
+        body {
+            font-family: "Bona Nova SC", serif;
+            background: #d6cfe1;
+            max-width: 100%;
+            margin: 0 auto;
+            text-rendering: optimizeLegibility;
+        }
+
+        h1, h2, h3, .navbar h1 {
+            font-family: "Bona Nova SC", serif;
+        }
+    </style>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.7.2/css/all.min.css" integrity="sha512-Evv84Mr4kqVGRNSgIGL/F/aIDqQb7xQ2vcrdIwxfjThSH8CSR7PBEakCr51Ck+w+/U6swU2Im1vVX0SVk9ABhg==" crossorigin="anonymous" referrerpolicy="no-referrer" />
+</head>
+<body>
+<nav class="navbar">
+  <h1>ShonoWear</h1>
+  <div class="navbar-links">
+    <p class="nav-link"><a href="index.html">Home</a></p>
+    <p class="nav-link"><a href="collection.html">Collections</a></p>
+    <p class="itm-text"><a href="New_Arrival.html">New Arraivals</a></p>
+    <p class="nav-link"><a href="checkout.html"><i class="fa-solid fa-cart-shopping"></i></a></p>
+    <p class="nav-link"><a href="login.html"><i class="fa-solid fa-circle-user"></i></a></p>
+  </div>
+  <div class="navbar-toggle" onclick="menu()">
+    <i class="fas fa-bars" ></i>
+  </div>
+</nav>
+<div class="navbar-toggle-itm">
+  <p onclick="menuclose()" class="cross" style="text-align:right; cursor:pointer;">
+    <i class="fas fa-xmark"></i></p>
+     <div class="itm">
+        <p class="nav-link"><a href="index.html">Home</a></p>
+        <p class="nav-link"><a href="collection.html">Collections</a></p>
+        <p class="itm-text"><a href="New_Arrival.html">New Arraivals</a></p>
+        <p class="nav-link"><a href="checkout.html">CART</a></p>
+        <p class="nav-link"><a href="login.html">Login</a></p>
+     </div>
+</div>
+    <div id="main-content" class="contact-container">
+        <h1>Contact Us</h1>
+        <p>Tell us more and we'll find the best solution for you.</p>
+        <div class="input-container">
+            <input type="text" class="input-box" placeholder="Describe your issue">
+            <button class="submit-btn" onclick="submitIssue()">Submit</button>
+        </div><br>
+
+        <h1>Frequently Asked Questions</h1><br>
+        <div class="faq-container">
+            <div class="faq-item">
+                <h3>What is ShonoWear? <span>+</span></h3>
+                <p class="faq-answer">ShonoWear is a fashion brand offering premium-quality apparel and accessories.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How can I track my order? <span>+</span></h3>
+                <p class="faq-answer">You can track your order using the tracking ID sent to your email after purchase.</p>
+            </div>
+            <div class="faq-item">
+                <h3>What is your return policy? <span>+</span></h3>
+                <p class="faq-answer">We offer a 7-day return policy for unused products in their original packaging.</p>
+            </div>
+            <div class="faq-item">
+                <h3>How do I contact customer support? <span>+</span></h3>
+                <p class="faq-answer">You can email us at support@shonowear.com or call our helpline.</p>
+            </div>
+        </div><br>
+
+        <h1>Comparison with Other Websites</h1><br>
+        <table border="1" class="comparison-table">
+            <tr>
+                <th>Feature</th>
+                <th>ShonoWear</th>
+                <th>Otakukulture</th>
+                <th>Otaku India Store</th>
+            </tr>
+            <tr>
+                <td>Quality of Products</td>
+                <td>Premium</td>
+                <td>Standard</td>
+                <td>Average</td>
+            </tr>
+            <tr>
+                <td>Return Policy</td>
+                <td>7 Days</td>
+                <td>5 Days</td>
+                <td>No Returns</td>
+            </tr>
+            <tr>
+                <td>Customer Support</td>
+                <td>24/7 Support</td>
+                <td>Limited Hours</td>
+                <td>Email Only</td>
+            </tr>
+            <tr>
+                <td>Exclusive Designs</td>
+                <td>Yes</td>
+                <td>No</td>
+                <td>Limited</td>
+            </tr>
+            <tr>
+                <td>Pricing</td>
+                <td>Affordable</td>
+                <td>Expensive</td>
+                <td>Cheap Quality</td>
+            </tr>
+        </table>
+    </div>
+
+    <div id="popup" class="popup">Response Submitted!</div>
+
+    <script>
+        document.querySelectorAll('.faq-item').forEach(item => {
+            item.addEventListener('click', () => {
+                document.querySelectorAll('.faq-item').forEach(otherItem => {
+                    if (otherItem !== item) {
+                        otherItem.classList.remove('active');
+                        otherItem.querySelector('.faq-answer').style.display = 'none';
+                        otherItem.querySelector('h3 span').textContent = '+';
+                    }
+                });
+
+                item.classList.toggle('active');
+                let answer = item.querySelector('.faq-answer');
+                let icon = item.querySelector('h3 span');
+                if (item.classList.contains('active')) {
+                    answer.style.display = 'block';
+                    icon.textContent = '×';
+                } else {
+                    answer.style.display = 'none';
+                    icon.textContent = '+';
+                }
+            });
+        });
+
+        function submitIssue() {
+            const popup = document.getElementById("popup");
+            const mainContent = document.getElementById("main-content");
+            mainContent.classList.add("blurred");
+            popup.style.display = "block";
+
+            setTimeout(() => {
+                popup.style.display = "none";
+                mainContent.classList.remove("blurred");
+            }, 2000);
+        }
+        var toggleitm=document.querySelector(".navbar-toggle-itm");
+function menu(){
+    toggleitm.style.left="0";
+}
+function menuclose(){
+    toggleitm.style.left="-60%";
+}
+
+    </script>
+
+    <div class="footer">
+        <div class="footer-container">
+            <div class="footer-box1">
+                <h2>ShonoWear</h2>
+            </div>
+
+            <div class="footer-icon" style="color: #faf8f6">
+                <h3>Follow Us</h3>
+                <a href="https://www.instagram.com/kavinjs21?utm_source=qr&igsh=MWlnZGRrbXYzODY4MA==">
+                    <i class="fa-brands fa-instagram"></i>
+                </a>
+                <a href="https://www.facebook.com/share/157KoarRaZ/">
+                    <i class="fa-brands fa-facebook"></i>
+                </a>
+                <a href="https://x.com/kavinjs21?t=JggmkxpSSPoraOitTOLwhA&s=08">
+                    <i class="fa-brands fa-twitter"></i>
+                </a>
+            </div>
+
+            <p>&copy; 2025 ShonoWear.com | All Rights Reserved</p>
+        </div>
+    </div>
+
+</body>
+</html>
